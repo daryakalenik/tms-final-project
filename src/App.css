@@ -1,38 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
+  background-image: url("https://wallpaperaccess.com/full/2796640.jpg");
+  height: fit-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-items-wrapper {
+  padding: 45px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  grid-template-rows: auto auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-item-block {
+  border: 1px solid rgba(5, 5, 5, 0.342);
+  word-wrap: break-word;
+  background-color: rgba(185, 185, 185, 0.342);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-item-name {
+  font-family: "Cardo", serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.main-item-details {
+  font-family: "Cardo", serif;
+  font-weight: bold;
+  font-size: 18;
+}
+
+.main-item-name,
+.main-item-details,
+.main-item-link {
+  padding: 5px;
+}
+
+.main-item-link {
+  font-family: "Cardo", serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.btn-back-block {
+  position: relative;
+}
+
+.btn-back {
+  width: 70px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: "Cardo", serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.main-block {
+  height: fit-content;
+  min-height: 1000px;
+}
+.details-block {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 20px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.details-block * {
+  margin: 8px;
+  font-family: "Cardo", serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details-block h2 {
+  font-size: 30px;
+}
+
+.details-block h4 {
+  font-size: 25px;
+}
+
+.toggler-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.special-list-toggler {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid #f00;
+}
+
+.cost-block {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cost-block p {
+  font-size: 30px;
 }
