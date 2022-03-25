@@ -8,7 +8,7 @@ import App from "./App";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename="/tms-final-project">
         <App />
       </Router>
     </Provider>
