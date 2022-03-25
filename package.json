@@ -1,7 +1,7 @@
 {
   "name": "final-project",
   "version": "0.1.0",
-  "homepage": "https://kvikasilfur.github.io/tms-final-project",
+  "homepage": "https://kvikasilfur.github.io/",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
