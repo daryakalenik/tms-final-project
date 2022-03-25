@@ -8,7 +8,7 @@ import {
 
 export function* getDataSaga(action: AnyAction) {
   try {
-    const res = yield fetch(`http://cors.io/${action.payload}`);
+    const res = yield fetch(`http://cors.io/?${action.payload}`);
     const data = yield res.json();
     yield put(GET_DATA_SUCCEEDED(data));
   } catch (e) {
