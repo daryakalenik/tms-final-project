@@ -28,9 +28,9 @@ function App() {
       <NavBar />
       <div className="App">
         <Routes>
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/" element={<PrivateRoute component={Home} />} />
+          <Route path="/home" element={<PrivateRoute component={Home} />} />
           <Route
             path="/civilizations"
             element={<PrivateRoute component={Civilizations} />}
