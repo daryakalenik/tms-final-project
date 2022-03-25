@@ -47,7 +47,7 @@ export const SignIn: React.FC = () => {
             onChange={handleChange}
           />
           <button>Sign In</button>
-          <Link to="/signup" className="sign-up-link">
+          <Link to="/" className="sign-up-link">
             Sign up
           </Link>
         </form>
