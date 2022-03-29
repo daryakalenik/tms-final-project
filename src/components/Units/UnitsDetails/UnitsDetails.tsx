@@ -3,9 +3,13 @@ import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
 import { useEffect, useState } from "react";
 
+type State = { opened: boolean };
+
 export const UnitsDetails: React.FC = () => {
   const { fetchUnitsDetails, unitsDetails, navigate } = useGetUnitsDetails();
-  const [state, setState] = useState({ opened: false });
+
+  const [state, setState] = useState<State>({ opened: false });
+
   useEffect(() => {
     fetchUnitsDetails();
   }, [fetchUnitsDetails]);

@@ -1,17 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { GET_DATA_REQUESTED } from "../../../ducks/main/reducer";
-import { RootState } from "../../../redux/rootReducer";
+import { RootState } from "../../../redux/store";
+import { Unit } from "../../../types/types";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks/hooks";
 
 export const useGetUnits = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const navigate: NavigateFunction = useNavigate();
 
-  const unitsMain: any = useSelector((store: RootState) => {
-    return store.main.data["units"];
+  const unitsMain: Unit[] = useAppSelector((store) => {
+    return store.main.data.units;
   });
 
-  const fetchUnits = () => {
+  const fetchUnits: () => void = () => {
     dispatch(
       GET_DATA_REQUESTED(
         "https://thingproxy.freeboard.io/fetch/https://age-of-empires-2-api.herokuapp.com/api/v1/units"

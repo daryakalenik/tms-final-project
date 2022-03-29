@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useGetCivilizations } from "./hooks/useGetCivilizations";
+import { Civilization } from "../../types/types";
 import Preloader from "../Preloader/Preloader";
 
 export const Civilizations: React.FC = () => {
@@ -10,7 +11,7 @@ export const Civilizations: React.FC = () => {
 
   useEffect(() => {
     fetchCivilizations();
-  }, [fetchCivilizations]);
+  }, []);
 
   return (
     <div className="main-block">
@@ -21,9 +22,9 @@ export const Civilizations: React.FC = () => {
       </div>
       {civilizationsMain ? (
         <div className="main-items-wrapper">
-          {civilizationsMain.map((item: any, index: any) => {
+          {civilizationsMain.map((item: Civilization) => {
             return (
-              <div key={index} className="main-item-block">
+              <div key={item.id} className="main-item-block">
                 <h5 className="main-item-name">{item.name}</h5>
                 <p className="main-item-details">{item.team_bonus}</p>
                 <Link

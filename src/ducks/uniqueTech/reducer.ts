@@ -1,6 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UniqueTechType } from "../../types/types";
 
-export const initialState = { data: [], error: null, isLoading: false };
+type UniqueTechState = {
+  data: UniqueTechType;
+  error: unknown;
+  isLoading: boolean;
+};
+
+export const initialState: UniqueTechState = {
+  data: {
+    id: 0,
+    name: ``,
+    description: ``,
+    expansion: ``,
+    age: ``,
+    develops_in: ``,
+    cost: {},
+    build_time: 0,
+    reload_time: 0,
+    applies_to: [``],
+  },
+  error: null,
+  isLoading: false,
+};
 
 const reducer = createSlice({
   name: `Unique tech`,

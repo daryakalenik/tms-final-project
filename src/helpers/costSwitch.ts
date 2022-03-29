@@ -1,4 +1,4 @@
-export const costSwitch = (param: string) => {
+export const costSwitch: (param: string) => string | null = (param) => {
   switch (param) {
     case "Wood":
       return "https://cdn-icons-png.flaticon.com/512/2933/2933661.png";

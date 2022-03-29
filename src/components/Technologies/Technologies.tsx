@@ -9,7 +9,7 @@ export const Technologies: React.FC = () => {
 
   useEffect(() => {
     fetchTechnologies();
-  }, [fetchTechnologies]);
+  }, []);
 
   return (
     <div className="main-block">

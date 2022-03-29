@@ -1,6 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UniqueUnitType } from "../../types/types";
 
-export const initialState = { data: [], error: null, isLoading: false };
+type UniqueUnitState = {
+  data: UniqueUnitType;
+  error: unknown;
+  isLoading: boolean;
+};
+
+export const initialState: UniqueUnitState = {
+  data: {
+    id: 0,
+    name: ``,
+    description: ``,
+    expansion: ``,
+    age: ``,
+    created_in: ``,
+    cost: {},
+    build_time: 0,
+    reload_time: 0,
+    movement_rate: 0,
+    line_of_sight: 0,
+    hit_points: 0,
+    attack: 0,
+    armor: ``,
+    attack_bonus: [``],
+    armor_bonus: [``],
+  },
+  error: null,
+  isLoading: false,
+};
 
 const reducer = createSlice({
   name: `Unique unit`,

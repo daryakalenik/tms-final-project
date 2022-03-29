@@ -1,6 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { MainItems } from "../../types/types";
 
-export const initialState = { data: [], error: null, isLoading: false };
+type MainState = {
+  data: MainItems;
+  error: unknown;
+  isLoading: boolean;
+};
+
+export const initialState: MainState = {
+  data: {},
+  error: null,
+  isLoading: false,
+};
 
 const reducer = createSlice({
   name: `Main`,

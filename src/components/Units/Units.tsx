@@ -8,7 +8,7 @@ export const Units: React.FC = () => {
 
   useEffect(() => {
     fetchUnits();
-  }, [fetchUnits]);
+  }, []);
 
   return (
     <div className="main-block">

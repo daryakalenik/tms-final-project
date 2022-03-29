@@ -1,20 +1,24 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { GET_DATA_REQUESTED } from "../../../../ducks/main/reducer";
-import { RootState } from "../../../../redux/rootReducer";
+import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import { MainItemsDetails } from "../../../../types/types";
+import { GET_DETAILS_REQUESTED } from "../../../../ducks/details/reducer";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks/hooks";
+
+type UnitsParams = {
+  id: string;
+};
 
 export const useGetUnitsDetails = () => {
-  const dispatch = useDispatch();
-  const unitsId = useParams().id;
-  const navigate = useNavigate();
-  const unitsDetails = useSelector((store: RootState) => {
-    return store.main.data;
+  const dispatch = useAppDispatch();
+  const { id } = useParams<UnitsParams>();
+  const navigate: NavigateFunction = useNavigate();
+  const unitsDetails: MainItemsDetails = useAppSelector((store) => {
+    return store.details.data;
   });
 
-  const fetchUnitsDetails = () => {
+  const fetchUnitsDetails: () => void = () => {
     dispatch(
-      GET_DATA_REQUESTED(
-        `https://thingproxy.freeboard.io/fetch/https://age-of-empires-2-api.herokuapp.com/api/v1/unit/${unitsId}`
+      GET_DETAILS_REQUESTED(
+        `https://thingproxy.freeboard.io/fetch/https://age-of-empires-2-api.herokuapp.com/api/v1/unit/${id}`
       )
     );
   };

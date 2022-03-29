@@ -12,9 +12,11 @@ export const PrivateRoute: React.FC<Props> = ({
   ...rest
 }) => {
   const currentUser = useContext(AuthContext);
-  const handleLogout = async () => {
+
+  const handleLogout: () => Promise<void> = async () => {
     await auth.signOut();
   };
+
   if (currentUser)
     return (
       <>

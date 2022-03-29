@@ -9,7 +9,7 @@ export const StructuresDetails: React.FC = () => {
 
   useEffect(() => {
     fetchStructuresDetails();
-  }, [fetchStructuresDetails]);
+  }, []);
 
   return (
     <div className="main-block">
@@ -20,10 +20,10 @@ export const StructuresDetails: React.FC = () => {
       </div>
       {structuresDetails ? (
         <div className="details-block">
-          <h2>{structuresDetails["name"]}</h2>
+          <h2>{structuresDetails.name}</h2>
 
-          {structuresDetails["cost"]
-            ? Object.entries(structuresDetails["cost"]).map(([key, value]) => {
+          {structuresDetails.cost
+            ? Object.entries(structuresDetails.cost).map(([key, value]) => {
                 return (
                   <div className="cost-block">
                     <img src={costSwitch(key)} width="70px" />
@@ -35,11 +35,11 @@ export const StructuresDetails: React.FC = () => {
 
           <h4>Other data</h4>
           <ul>
-            <li>Build time: {structuresDetails["build_time"]}</li>
-            <li>Hit Points: {structuresDetails["hit_points"]}</li>
-            <li>Line of Sight: {structuresDetails["line_of_sight"]}</li>
-            <li>Armor: {structuresDetails["armor"]}</li>
-            <li>Age: {structuresDetails["age"]}</li>
+            <li>Build time: {structuresDetails.build_time}</li>
+            <li>Hit Points: {structuresDetails.hit_points}</li>
+            <li>Line of Sight: {structuresDetails.line_of_sight}</li>
+            <li>Armor: {structuresDetails.armor}</li>
+            <li>Age: {structuresDetails.age}</li>
           </ul>
         </div>
       ) : (

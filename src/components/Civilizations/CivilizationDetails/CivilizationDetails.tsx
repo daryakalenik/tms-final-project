@@ -13,12 +13,13 @@ export const CivilizationDetails: React.FC = () => {
     deleteUniqueTech,
     deleteUniqueUnit,
     navigate,
-    store,
+    uniqueUnit,
+    uniqueTech,
   } = useGetCivilizationDetails();
 
   useEffect(() => {
     fetchCivilizationDetails();
-  }, [fetchCivilizationDetails]);
+  }, []);
 
   return (
     <div className="main-block">
@@ -29,24 +30,24 @@ export const CivilizationDetails: React.FC = () => {
       </div>
       {civilizationDetails ? (
         <div className="details-block">
-          <h2>{civilizationDetails["name"]}</h2>
-          <p>{civilizationDetails["team_bonus"]}</p>
+          <h2>{civilizationDetails.name}</h2>
+          <p>{civilizationDetails.team_bonus}</p>
           <ul>
             Civilization bonus:
-            {civilizationDetails["civilization_bonus"]?.map(
+            {civilizationDetails.civilization_bonus?.map(
               (item: string, index: number) => {
                 return <li key={index}>{item}</li>;
               }
             )}
           </ul>
           <button
-            value={civilizationDetails["unique_unit"]}
+            value={civilizationDetails.unique_unit}
             onClick={getUniqueUnit}
           >
             Unique unit
           </button>
           <button
-            value={civilizationDetails["unique_tech"]}
+            value={civilizationDetails.unique_tech}
             onClick={getUniqueTech}
           >
             Unique tech
@@ -56,57 +57,53 @@ export const CivilizationDetails: React.FC = () => {
         <Preloader />
       )}
       <div className="unique-items-wrapper">
-        {store?.uniqueUnit.data ? (
+        {uniqueUnit ? (
           <div className="unique-item">
             <p>
-              {store?.uniqueUnit.data["name"]}
-              {store?.uniqueUnit.data["name"] ? (
+              {uniqueUnit.name}
+              {uniqueUnit.name ? (
                 <button className="delete-button" onClick={deleteUniqueUnit}>
                   X
                 </button>
               ) : null}
             </p>
-            <p>{store?.uniqueUnit.data["description"]}</p>
+            <p>{uniqueUnit.description}</p>
             <div>
-              {store?.uniqueUnit.data["cost"]
-                ? Object.entries(store?.uniqueUnit.data["cost"]).map(
-                    ([key, value]) => {
-                      return (
-                        <div className="cost-block">
-                          <img src={costSwitch(key)} width="50px" />
-                          <p>{value}</p>
-                        </div>
-                      );
-                    }
-                  )
+              {uniqueUnit.cost
+                ? Object.entries(uniqueUnit.cost).map(([key, value]) => {
+                    return (
+                      <div className="cost-block">
+                        <img src={costSwitch(key)} width="50px" />
+                        <p>{value}</p>
+                      </div>
+                    );
+                  })
                 : null}
             </div>
           </div>
         ) : null}
-        {store?.uniqueTech.data ? (
+        {uniqueTech ? (
           <div className="unique-item">
             <p>
-              {store?.uniqueTech.data["name"]}
-              {store?.uniqueTech.data["name"] ? (
+              {uniqueTech.name}
+              {uniqueTech.name ? (
                 <button className="delete-button" onClick={deleteUniqueTech}>
                   X
                 </button>
               ) : null}
             </p>
 
-            <p>{store?.uniqueTech.data["description"]}</p>
+            <p>{uniqueTech.description}</p>
             <div>
-              {store?.uniqueTech.data["cost"]
-                ? Object.entries(store?.uniqueTech.data["cost"]).map(
-                    ([key, value]) => {
-                      return (
-                        <div className="cost-block">
-                          <img src={costSwitch(key)} width="50px" />
-                          <p>{value}</p>
-                        </div>
-                      );
-                    }
-                  )
+              {uniqueTech.cost
+                ? Object.entries(uniqueTech.cost).map(([key, value]) => {
+                    return (
+                      <div className="cost-block">
+                        <img src={costSwitch(key)} width="50px" />
+                        <p>{value}</p>
+                      </div>
+                    );
+                  })
                 : null}
             </div>
           </div>
