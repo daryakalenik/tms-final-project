@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { useGetCivilizations } from "./hooks/useGetCivilizations";
+import Preloader from "../Preloader/Preloader";
 
 export const Civilizations: React.FC = () => {
   const { fetchCivilizations, civilizationsMain, navigate } =
@@ -17,24 +19,26 @@ export const Civilizations: React.FC = () => {
           Go back
         </button>
       </div>
-      <div className="main-items-wrapper">
-        {civilizationsMain
-          ? civilizationsMain.map((item: any, index: any) => {
-              return (
-                <div key={index} className="main-item-block">
-                  <h5 className="main-item-name">{item.name}</h5>
-                  <p className="main-item-details">{item.team_bonus}</p>
-                  <Link
-                    to={`/civilizations/${item.id}`}
-                    className="main-item-link"
-                  >
-                    Learn more
-                  </Link>
-                </div>
-              );
-            })
-          : null}
-      </div>
+      {civilizationsMain ? (
+        <div className="main-items-wrapper">
+          {civilizationsMain.map((item: any, index: any) => {
+            return (
+              <div key={index} className="main-item-block">
+                <h5 className="main-item-name">{item.name}</h5>
+                <p className="main-item-details">{item.team_bonus}</p>
+                <Link
+                  to={`/civilizations/${item.id}`}
+                  className="main-item-link"
+                >
+                  Learn more
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

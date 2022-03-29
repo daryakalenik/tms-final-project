@@ -1,5 +1,6 @@
 import { useGetUnitsDetails } from "./hooks/useGetUnitsDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
+import Preloader from "../../Preloader/Preloader";
 import { useEffect, useState } from "react";
 
 export const UnitsDetails: React.FC = () => {
@@ -21,16 +22,18 @@ export const UnitsDetails: React.FC = () => {
           <h2>{unitsDetails["name"]}</h2>
           <h3>{unitsDetails["description"]}</h3>
           <div>
-            {unitsDetails["cost"]
-              ? Object.entries(unitsDetails["cost"]).map(([key, value]) => {
-                  return (
-                    <div className="cost-block">
-                      <img src={costSwitch(key)} width="70px" />
-                      <p>{value}</p>
-                    </div>
-                  );
-                })
-              : null}
+            {unitsDetails["cost"] ? (
+              Object.entries(unitsDetails["cost"]).map(([key, value]) => {
+                return (
+                  <div className="cost-block">
+                    <img src={costSwitch(key)} width="70px" />
+                    <p>{value}</p>
+                  </div>
+                );
+              })
+            ) : (
+              <Preloader />
+            )}
           </div>
           <div>
             <div className="toggler-wrapper">
@@ -53,7 +56,9 @@ export const UnitsDetails: React.FC = () => {
             ) : null}
           </div>
         </div>
-      ) : null}
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

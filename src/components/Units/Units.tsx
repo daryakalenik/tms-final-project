@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
 import { useGetUnits } from "./hooks/useGetUnits";
 
 export const Units: React.FC = () => {
@@ -16,22 +17,23 @@ export const Units: React.FC = () => {
           Go back
         </button>
       </div>
-      <div className="main-items-wrapper">
-        {unitsMain
-          ? unitsMain.map((item: any, index: any) => {
-              return (
-                <div key={index} className="main-item-block">
-                  <h5 className="main-item-name">{item.name}</h5>
-                  <p className="main-item-details">{item.description}</p>
-                  <Link to={`/units/${item.id}`} className="main-item-link">
-                    {" "}
-                    Learn more
-                  </Link>
-                </div>
-              );
-            })
-          : null}
-      </div>
+      {unitsMain ? (
+        <div className="main-items-wrapper">
+          {unitsMain.map((item: any, index: any) => {
+            return (
+              <div key={index} className="main-item-block">
+                <h5 className="main-item-name">{item.name}</h5>
+                <p className="main-item-details">{item.description}</p>
+                <Link to={`/units/${item.id}`} className="main-item-link">
+                  Learn more
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

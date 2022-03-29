@@ -1,29 +1,40 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../auth/firebase/firebase";
+import { State } from "../types";
 import "../styles.css";
 
 export const SignUp: React.FC = () => {
-  const [data, setData] = useState({ email: ``, password: `` });
+  const [data, setData] = useState<State>({
+    email: ``,
+    password: ``,
+    error: ``,
+  });
 
   const navigate = useNavigate();
 
   const handleChange = (
-    e: React.ChangeEvent & { target: { name: string; value: string } }
+    e: React.ChangeEvent<HTMLInputElement> & {
+      target: { name: string; value: string };
+    }
   ) => {
     setData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+      error: ``,
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await auth.createUserWithEmailAndPassword(data.email, data.password);
       navigate("/");
     } catch (e: any) {
-      console.dir(e.message);
+      setData((prevState) => ({
+        ...prevState,
+        error: e.message,
+      }));
     }
   };
 
@@ -50,6 +61,7 @@ export const SignUp: React.FC = () => {
           <Link to="/signin" className="sign-up-link">
             Sign in
           </Link>
+          {data.error ? <p>{data.error}</p> : null}
         </form>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useGetStructuresDetails } from "./hooks/useGetStructuresDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
+import Preloader from "../../Preloader/Preloader";
 import { useEffect } from "react";
 
 export const StructuresDetails: React.FC = () => {
@@ -41,7 +42,9 @@ export const StructuresDetails: React.FC = () => {
             <li>Age: {structuresDetails["age"]}</li>
           </ul>
         </div>
-      ) : null}
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

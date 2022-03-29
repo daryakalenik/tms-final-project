@@ -1,9 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../auth/context/AuthContext";
-import React, { useContext } from "react";
 import "./styles.css";
 
-export const NavBar = () => {
+export const NavBar: React.FC = () => {
   return (
     <div>
       <nav className="nav">

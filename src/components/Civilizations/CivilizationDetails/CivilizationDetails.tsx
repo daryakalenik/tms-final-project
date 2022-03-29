@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-
+import Preloader from "../../Preloader/Preloader";
 import { useGetCivilizationDetails } from "./hooks/useGetCivilizationDetails";
-
 import { costSwitch } from "../../../helpers/costSwitch";
 import "../styles.css";
 
@@ -53,7 +52,9 @@ export const CivilizationDetails: React.FC = () => {
             Unique tech
           </button>
         </div>
-      ) : null}
+      ) : (
+        <Preloader />
+      )}
       <div className="unique-items-wrapper">
         {store?.uniqueUnit.data ? (
           <div className="unique-item">

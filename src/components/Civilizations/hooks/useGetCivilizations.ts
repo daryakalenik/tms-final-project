@@ -7,7 +7,7 @@ export const useGetCivilizations = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const civilizationsMain: any = useSelector((store: RootState) => {
+  const civilizationsMain = useSelector((store: RootState) => {
     return store.main.data["civilizations"];
   });
 

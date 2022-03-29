@@ -1,5 +1,6 @@
 import { useGetTechnologiesDetails } from "./hooks/useGetTechnologiesDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
+import Preloader from "../../Preloader/Preloader";
 import { useEffect } from "react";
 
 export const TechnologiesDetails: React.FC = () => {
@@ -36,7 +37,9 @@ export const TechnologiesDetails: React.FC = () => {
               : null}
           </div>
         </div>
-      ) : null}
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };

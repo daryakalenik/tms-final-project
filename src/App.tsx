@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./auth/context/AuthContextProvider";
+import React from "react";
+import { Lines } from "react-preloaders";
 
 import { SignUp } from "./components/auth/SignUp";
 import { SignIn } from "./components/auth/SignIn";

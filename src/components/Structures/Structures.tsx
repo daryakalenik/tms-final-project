@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useGetStructures } from "./hooks/useGetStructures";
+import Preloader from "../Preloader/Preloader";
 
 export const Structures: React.FC = () => {
   const { fetchStructures, structuresMain, navigate } = useGetStructures();
@@ -16,23 +17,22 @@ export const Structures: React.FC = () => {
           Go back
         </button>
       </div>
-      <div className="main-items-wrapper">
-        {structuresMain
-          ? structuresMain.map((item: any, index: any) => {
-              return (
-                <div key={index} className="main-item-block">
-                  <h5 className="main-item-name">{item.name}</h5>
-                  <Link
-                    to={`/structures/${item.id}`}
-                    className="main-item-link"
-                  >
-                    Learn more
-                  </Link>
-                </div>
-              );
-            })
-          : null}
-      </div>
+      {structuresMain ? (
+        <div className="main-items-wrapper">
+          {structuresMain.map((item: any, index: any) => {
+            return (
+              <div key={index} className="main-item-block">
+                <h5 className="main-item-name">{item.name}</h5>
+                <Link to={`/structures/${item.id}`} className="main-item-link">
+                  Learn more
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <Preloader />
+      )}
     </div>
   );
 };
