@@ -1,7 +1,8 @@
+import { useEffect } from "react";
+
 import { useGetTechnologiesDetails } from "./hooks/useGetTechnologiesDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
-import { useEffect } from "react";
 
 export const TechnologiesDetails: React.FC = () => {
   const { fetchTechnologiesDetails, technologiesDetails, navigate } =

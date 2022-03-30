@@ -1,6 +1,7 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { GET_DATA_REQUESTED } from "../../../ducks/main/reducer";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks/hooks";
+
+import { GET_DATA_REQUESTED } from "../../../ducks/main/reducer";
 import { Structure } from "../../../types/types";
 
 export const useGetStructures = () => {

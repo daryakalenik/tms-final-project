@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { useGetStructures } from "./hooks/useGetStructures";
 import Preloader from "../Preloader/Preloader";
 import { Structure } from "../../types/types";

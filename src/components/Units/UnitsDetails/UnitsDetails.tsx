@@ -12,7 +12,7 @@ export const UnitsDetails: React.FC = () => {
 
   useEffect(() => {
     fetchUnitsDetails();
-  }, [fetchUnitsDetails]);
+  }, []);
 
   return (
     <div className="main-block">
@@ -23,11 +23,11 @@ export const UnitsDetails: React.FC = () => {
       </div>
       {unitsDetails ? (
         <div className="details-block">
-          <h2>{unitsDetails["name"]}</h2>
-          <h3>{unitsDetails["description"]}</h3>
+          <h2>{unitsDetails.name}</h2>
+          <h3>{unitsDetails.description}</h3>
           <div>
-            {unitsDetails["cost"] ? (
-              Object.entries(unitsDetails["cost"]).map(([key, value]) => {
+            {unitsDetails.cost ? (
+              Object.entries(unitsDetails.cost).map(([key, value]) => {
                 return (
                   <div className="cost-block">
                     <img src={costSwitch(key)} width="70px" />
@@ -51,11 +51,11 @@ export const UnitsDetails: React.FC = () => {
             </div>
             {state.opened ? (
               <ul>
-                <li>Age: {unitsDetails["age"]}</li>
-                <li>Armor: {unitsDetails["armor"]}</li>
-                <li>Attack: {unitsDetails["attack"]}</li>
-                <li>Attack delay: {unitsDetails["attack_delay"]}</li>
-                <li>Build time: {unitsDetails["build_time"]}</li>
+                <li>Age: {unitsDetails.age}</li>
+                <li>Armor: {unitsDetails.armor}</li>
+                <li>Attack: {unitsDetails.attack}</li>
+                <li>Attack delay: {unitsDetails.attack_delay}</li>
+                <li>Build time: {unitsDetails.build_time}</li>
               </ul>
             ) : null}
           </div>

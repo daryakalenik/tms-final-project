@@ -1,7 +1,8 @@
+import { useEffect } from "react";
+
 import { useGetStructuresDetails } from "./hooks/useGetStructuresDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
-import { useEffect } from "react";
 
 export const StructuresDetails: React.FC = () => {
   const { fetchStructuresDetails, navigate, structuresDetails } =

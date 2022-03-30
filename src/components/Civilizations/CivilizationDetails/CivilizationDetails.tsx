@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import Preloader from "../../Preloader/Preloader";
 import { useGetCivilizationDetails } from "./hooks/useGetCivilizationDetails";
 import { costSwitch } from "../../../helpers/costSwitch";

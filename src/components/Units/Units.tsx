@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import Preloader from "../Preloader/Preloader";
 import { useGetUnits } from "./hooks/useGetUnits";
+import { Unit } from "../../types/types";
 
 export const Units: React.FC = () => {
   const { fetchUnits, unitsMain, navigate } = useGetUnits();
@@ -19,7 +21,7 @@ export const Units: React.FC = () => {
       </div>
       {unitsMain ? (
         <div className="main-items-wrapper">
-          {unitsMain.map((item: any, index: any) => {
+          {unitsMain.map((item: Unit, index: number) => {
             return (
               <div key={index} className="main-item-block">
                 <h5 className="main-item-name">{item.name}</h5>

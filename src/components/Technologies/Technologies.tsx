@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { useGetTechnologies } from "./hooks/useGetTechnologies";
 import Preloader from "../Preloader/Preloader";
+import { Technology } from "../../types/types";
 
 export const Technologies: React.FC = () => {
   const { fetchTechnologies, technologiesMain, navigate } =
@@ -20,7 +22,7 @@ export const Technologies: React.FC = () => {
       </div>
       {technologiesMain ? (
         <div className="main-items-wrapper">
-          {technologiesMain.map((item: any, index: any) => {
+          {technologiesMain.map((item: Technology, index: number) => {
             return (
               <div key={index} className="main-item-block">
                 <h5 className="main-item-name">{item.name}</h5>

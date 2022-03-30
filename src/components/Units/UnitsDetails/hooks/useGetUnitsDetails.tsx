@@ -1,7 +1,8 @@
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks/hooks";
+
 import { MainItemsDetails } from "../../../../types/types";
 import { GET_DETAILS_REQUESTED } from "../../../../ducks/details/reducer";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks/hooks";
 
 type UnitsParams = {
   id: string;

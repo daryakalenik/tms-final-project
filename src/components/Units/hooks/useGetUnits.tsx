@@ -1,8 +1,8 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { GET_DATA_REQUESTED } from "../../../ducks/main/reducer";
-import { RootState } from "../../../redux/store";
-import { Unit } from "../../../types/types";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks/hooks";
+
+import { GET_DATA_REQUESTED } from "../../../ducks/main/reducer";
+import { Unit } from "../../../types/types";
 
 export const useGetUnits = () => {
   const dispatch = useAppDispatch();

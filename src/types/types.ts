@@ -94,6 +94,7 @@ export type Technology = {
   id: number;
   name: string;
   expansion: string;
+  description: string;
   age: string;
   develops_in: string;
   cost: Cost;
