@@ -120,3 +120,9 @@ export type Unit = {
   armor: string;
   accuracy: string;
 };
+
+export type ActionError = { type: string; payload: Error };
+
+type Error = { name: string; message: string; stack: unknown };
+
+export type ActionRequest = { type: string; payload: string };

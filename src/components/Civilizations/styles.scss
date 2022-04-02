@@ -1,0 +1,37 @@
+$header-font: "Cinzel", serif;
+$main-font: "Cardo", serif;
+
+.category-main-block__unique-items-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unique-item__data-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+
+  .data-list__header {
+    font-family: $main-font;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 8px;
+  }
+  .data-list__paragraph {
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+
+.unique-item__delete-button {
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.cost-block__paragraph {
+  margin-left: 10px;
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useGetTechnologies } from "./hooks/useGetTechnologies";
 import Preloader from "../Preloader/Preloader";
+import { BackButton } from "../BackButton/BackButton";
 import { Technology } from "../../types/types";
 
 export const Technologies: React.FC = () => {
@@ -14,22 +15,18 @@ export const Technologies: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-block">
-      <div className="btn-back-block">
-        <button className="btn-back" onClick={() => navigate(-1)}>
-          Go back
-        </button>
-      </div>
+    <div className="category-main-block">
+      <BackButton />
       {technologiesMain ? (
-        <div className="main-items-wrapper">
+        <div className="category-main-block__items-list items-list">
           {technologiesMain.map((item: Technology, index: number) => {
             return (
-              <div key={index} className="main-item-block">
-                <h5 className="main-item-name">{item.name}</h5>
-                <p className="main-item-details">{item.description}</p>
+              <div key={index} className="items-list__item item">
+                <h5 className="item__item-name">{item.name}</h5>
+                <p className="item__item-details">{item.description}</p>
                 <Link
                   to={`/technologies/${item.id}`}
-                  className="main-item-link"
+                  className="item__item-link"
                 >
                   {" "}
                   Learn more

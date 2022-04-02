@@ -21,7 +21,7 @@ import { StructuresDetails } from "./components/Structures/StructuresDetails/Str
 import { Technologies } from "./components/Technologies/Technologies";
 import { TechnologiesDetails } from "./components/Technologies/TechnologiesDetails/TechnologiesDetails";
 
-import "./App.css";
+import "./App.scss";
 
 const App: React.FC = () => {
   return (

@@ -7,7 +7,7 @@ export const costSwitch: (param: string) => string | null = (param) => {
       return "https://cdn-icons-png.flaticon.com/512/2206/2206663.png";
       break;
     case "Gold":
-      return "https://cdn-icons.flaticon.com/png/512/2806/premium/2806459.png?token=exp=1648146783~hmac=e53aafb3e4d139e6510dfd86b03b6426";
+      return "https://cdn-icons-png.flaticon.com/512/2933/2933116.png";
       break;
     case "Food":
       return "https://cdn-icons-png.flaticon.com/512/3076/3076058.png";

@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import "./styles.css";
+import "./styles.scss";
 
 export const NavBar: React.FC = () => {
   return (
     <div>
-      <nav className="nav">
+      <nav className="menu">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            (isActive ? "active" : "") + " " + "nav-item"
+            isActive ? "menu__item_active" : "menu__item"
           }
         >
           Home
@@ -16,7 +16,7 @@ export const NavBar: React.FC = () => {
         <NavLink
           to="/civilizations"
           className={({ isActive }) =>
-            (isActive ? "active" : "") + " " + "nav-item"
+            isActive ? "menu__item_active" : "menu__item"
           }
         >
           Civilizations
@@ -24,7 +24,7 @@ export const NavBar: React.FC = () => {
         <NavLink
           to="/units"
           className={({ isActive }) =>
-            (isActive ? "active" : "") + " " + "nav-item"
+            isActive ? "menu__item_active" : "menu__item"
           }
         >
           Units
@@ -32,7 +32,7 @@ export const NavBar: React.FC = () => {
         <NavLink
           to="/structures"
           className={({ isActive }) =>
-            (isActive ? "active" : "") + " " + "nav-item"
+            isActive ? "menu__item_active" : "menu__item"
           }
         >
           Structures
@@ -40,7 +40,7 @@ export const NavBar: React.FC = () => {
         <NavLink
           to="/technologies"
           className={({ isActive }) =>
-            (isActive ? "active" : "") + " " + "nav-item"
+            isActive ? "menu__item_active" : "menu__item"
           }
         >
           Technologies

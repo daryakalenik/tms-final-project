@@ -1,8 +1,8 @@
-import "./styles.css";
+import "./styles.scss";
 
 const Preloader = () => (
-  <div className="loader-wrapper">
-    <div className="loader" />
+  <div className="loader">
+    <div className="loader__item" />
   </div>
 );
 

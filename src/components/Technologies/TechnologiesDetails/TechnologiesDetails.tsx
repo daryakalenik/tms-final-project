@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useGetTechnologiesDetails } from "./hooks/useGetTechnologiesDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
+import { BackButton } from "../../BackButton/BackButton";
 
 export const TechnologiesDetails: React.FC = () => {
   const { fetchTechnologiesDetails, technologiesDetails, navigate } =
@@ -13,23 +14,21 @@ export const TechnologiesDetails: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-block">
-      <div className="btn-back-block">
-        <button className="btn-back" onClick={() => navigate(-1)}>
-          Go back
-        </button>
-      </div>
+    <div className="category-main-block">
+      <BackButton />
       {technologiesDetails ? (
-        <div className="details-block">
-          <h2>{technologiesDetails.name}</h2>
-          <h3>{technologiesDetails.description}</h3>
-          <div>
+        <div className="category-main-block__details-list details-list">
+          <h2 className="details-list__name">{technologiesDetails.name}</h2>
+          <p className="details-list__paragraph">
+            {technologiesDetails.description}
+          </p>
+          <div className="unique-item__cost-block cost-block">
             {technologiesDetails.cost
               ? Object.entries(technologiesDetails.cost).map(([key, value]) => {
                   return (
-                    <div className="cost-block">
+                    <div className="cost-block__list">
                       <img src={costSwitch(key)} width="70px" />
-                      <p>{value}</p>
+                      <p className="cost-block__paragraph">{value}</p>
                     </div>
                   );
                 })

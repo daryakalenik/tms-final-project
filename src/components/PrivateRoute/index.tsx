@@ -21,7 +21,7 @@ export const PrivateRoute: React.FC<Props> = ({
     return (
       <>
         <Component>
-          <button onClick={handleLogout}>Logout</button>
+          <button onClick={handleLogout}>Log out</button>
         </Component>
       </>
     );

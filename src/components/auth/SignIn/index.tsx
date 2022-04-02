@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../auth/firebase/firebase";
 import { State } from "../types";
-import "../styles.css";
+import "../styles.scss";
 
 export const SignIn: React.FC = () => {
   const [data, setData] = useState<State>({
@@ -40,15 +40,16 @@ export const SignIn: React.FC = () => {
 
   return (
     <div className="auth-block">
-      <div className="auth-form-block">
-        <form onSubmit={handleSubmit} className="form-block">
-          <h3>Sign In</h3>
+      <div className="auth-block__form-wrapper form-wrapper">
+        <form onSubmit={handleSubmit} className="form-wrapper__form form">
+          <h3 className="form__header">Sign In</h3>
           <input
             name="email"
             placeholder="email"
             type="email"
             value={data.email}
             onChange={handleChange}
+            className="form__input"
           />
           <input
             name="password"
@@ -56,9 +57,10 @@ export const SignIn: React.FC = () => {
             type="password"
             value={data.password}
             onChange={handleChange}
+            className="form__input"
           />
-          <button>Sign In</button>
-          <Link to="/signup" className="sign-up-link">
+          <button className="form__submit-button">Sign In</button>
+          <Link to="/signup" className="form__sign-up-link">
             Sign up
           </Link>
           {data.error ? <p>{data.error}</p> : null}

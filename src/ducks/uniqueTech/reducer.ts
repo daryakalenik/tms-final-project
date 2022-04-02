@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UniqueTechType } from "../../types/types";
+import { UniqueTechType, ActionError, ActionRequest } from "../../types/types";
+
+type Action = { type: string; payload: UniqueTechType };
 
 type UniqueTechState = {
   data: UniqueTechType;
@@ -28,17 +30,17 @@ const reducer = createSlice({
   name: `Unique tech`,
   initialState,
   reducers: {
-    GET_UNIQUE_TECH_REQUESTED: (state, action) => {
+    GET_UNIQUE_TECH_REQUESTED: (state, action: ActionRequest) => {
       state.error = initialState.error;
       state.isLoading = true;
     },
-    GET_UNIQUE_TECH_SUCCEEDED: (state, action) => {
+    GET_UNIQUE_TECH_SUCCEEDED: (state, action: Action) => {
       state.error = initialState.error;
       state.data = action.payload;
       state.isLoading = false;
     },
-    GET_UNIQUE_TECH_FAILED: (state, action) => {
-      state.error = action.payload.message;
+    GET_UNIQUE_TECH_FAILED: (state, action: ActionError) => {
+      state.error = action.payload;
       state.isLoading = false;
     },
     GET_UNIQUE_TECH_DELETE: (state, action) => {

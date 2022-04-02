@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MainItemsDetails } from "../../types/types";
+import {
+  MainItemsDetails,
+  ActionError,
+  ActionRequest,
+} from "../../types/types";
+
+type ActionSuccess = { type: string; payload: MainItemsDetails };
 
 type DetailsState = {
   data: MainItemsDetails;
@@ -17,16 +23,16 @@ const reducer = createSlice({
   name: `Details`,
   initialState,
   reducers: {
-    GET_DETAILS_REQUESTED: (state, action) => {
+    GET_DETAILS_REQUESTED: (state, action: ActionRequest) => {
       state.error = initialState.error;
       state.isLoading = true;
     },
-    GET_DETAILS_SUCCEEDED: (state, action) => {
+    GET_DETAILS_SUCCEEDED: (state, action: ActionSuccess) => {
       state.error = initialState.error;
       state.data = action.payload;
       state.isLoading = false;
     },
-    GET_DETAILS_FAILED: (state, action) => {
+    GET_DETAILS_FAILED: (state, action: ActionError) => {
       state.error = action.payload;
       state.isLoading = false;
     },

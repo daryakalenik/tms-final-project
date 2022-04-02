@@ -1,0 +1,28 @@
+$header-font: "Cinzel", serif;
+$header-font-color: rgba(247, 195, 126, 0.8);
+$header-font-stroke: 1px rgba(255, 255, 255, 0.1);
+
+.menu {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: $header-font;
+  font-size: 23px;
+  background-color: rgb(26, 26, 26);
+  .menu__item {
+    text-decoration: none;
+    -webkit-text-stroke: $header-font-stroke;
+    -webkit-text-fill-color: $header-font-color;
+  }
+  .menu__item_active {
+    text-decoration: none;
+    -webkit-text-fill-color: rgba(255, 22, 41, 0.8);
+  }
+}
+
+.menu__item_active {
+  text-decoration: none;
+  -webkit-text-fill-color: rgba(255, 22, 41, 0.8);
+}

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UniqueUnitType } from "../../types/types";
+import { UniqueUnitType, ActionError, ActionRequest } from "../../types/types";
+
+type Action = { type: string; payload: UniqueUnitType };
 
 type UniqueUnitState = {
   data: UniqueUnitType;
@@ -34,16 +36,16 @@ const reducer = createSlice({
   name: `Unique unit`,
   initialState,
   reducers: {
-    GET_UNIQUE_UNIT_REQUESTED: (state, action) => {
+    GET_UNIQUE_UNIT_REQUESTED: (state, action: ActionRequest) => {
       state.error = initialState.error;
       state.isLoading = true;
     },
-    GET_UNIQUE_UNIT_SUCCEEDED: (state, action) => {
+    GET_UNIQUE_UNIT_SUCCEEDED: (state, action: Action) => {
       state.error = initialState.error;
       state.data = action.payload;
       state.isLoading = false;
     },
-    GET_UNIQUE_UNIT_FAILED: (state, action) => {
+    GET_UNIQUE_UNIT_FAILED: (state, action: ActionError) => {
       state.error = action.payload.message;
       state.isLoading = false;
     },

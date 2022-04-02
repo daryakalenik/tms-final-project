@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MainItems } from "../../types/types";
+import { MainItems, ActionError } from "../../types/types";
+
+type Action = { type: string; payload: MainItems };
 
 type MainState = {
   data: MainItems;
@@ -17,16 +19,16 @@ const reducer = createSlice({
   name: `Main`,
   initialState,
   reducers: {
-    GET_DATA_REQUESTED: (state, action) => {
+    GET_DATA_REQUESTED: (state, action: Action) => {
       state.error = initialState.error;
       state.isLoading = true;
     },
-    GET_DATA_SUCCEEDED: (state, action) => {
+    GET_DATA_SUCCEEDED: (state, action: Action) => {
       state.error = initialState.error;
       state.data = action.payload;
       state.isLoading = false;
     },
-    GET_DATA_FAILED: (state, action) => {
+    GET_DATA_FAILED: (state, action: ActionError) => {
       state.error = action.payload;
       state.isLoading = false;
     },

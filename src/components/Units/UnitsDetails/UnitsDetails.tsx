@@ -1,6 +1,7 @@
 import { useGetUnitsDetails } from "./hooks/useGetUnitsDetails";
 import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
+import { BackButton } from "../../BackButton/BackButton";
 import { useEffect, useState } from "react";
 
 type State = { opened: boolean };
@@ -15,23 +16,19 @@ export const UnitsDetails: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-block">
-      <div className="btn-back-block">
-        <button className="btn-back" onClick={() => navigate(-1)}>
-          Go back
-        </button>
-      </div>
+    <div className="category-main-block">
+      <BackButton />
       {unitsDetails ? (
-        <div className="details-block">
-          <h2>{unitsDetails.name}</h2>
-          <h3>{unitsDetails.description}</h3>
-          <div>
+        <div className="category-main-block__details-list details-lis">
+          <h2 className="details-list__name">{unitsDetails.name}</h2>
+          <p className="details-list__paragraph">{unitsDetails.description}</p>
+          <div className="unique-item__cost-block cost-block">
             {unitsDetails.cost ? (
               Object.entries(unitsDetails.cost).map(([key, value]) => {
                 return (
-                  <div className="cost-block">
+                  <div className="cost-block__list">
                     <img src={costSwitch(key)} width="70px" />
-                    <p>{value}</p>
+                    <p className="cost-block__paragraph">{value}</p>
                   </div>
                 );
               })
@@ -39,23 +36,33 @@ export const UnitsDetails: React.FC = () => {
               <Preloader />
             )}
           </div>
-          <div>
-            <div className="toggler-wrapper">
-              <h4>Other data</h4>
+          <div className="details-list__data-list data-list">
+            <div className="data-list___header-block header-block">
+              <p className="header-block__text">Other data:</p>
               <div
-                className="special-list-toggler"
+                className="header__toggler"
                 onClick={() => {
                   setState((prevState) => ({ opened: !prevState.opened }));
                 }}
               />
             </div>
             {state.opened ? (
-              <ul>
-                <li>Age: {unitsDetails.age}</li>
-                <li>Armor: {unitsDetails.armor}</li>
-                <li>Attack: {unitsDetails.attack}</li>
-                <li>Attack delay: {unitsDetails.attack_delay}</li>
-                <li>Build time: {unitsDetails.build_time}</li>
+              <ul className="data-list__items">
+                <li className="data-list__paragraph">
+                  Age: {unitsDetails.age}
+                </li>
+                <li className="data-list__paragraph">
+                  Armor: {unitsDetails.armor}
+                </li>
+                <li className="data-list__paragraph">
+                  Attack: {unitsDetails.attack}
+                </li>
+                <li className="data-list__paragraph">
+                  Attack delay: {unitsDetails.attack_delay}
+                </li>
+                <li className="data-list__paragraph">
+                  Build time: {unitsDetails.build_time}
+                </li>
               </ul>
             ) : null}
           </div>
