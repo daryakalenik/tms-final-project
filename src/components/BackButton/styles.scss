@@ -1,3 +1,6 @@
+@import "../../variables/variables";
+
+
 .back-block {
   position: relative;
   .back-block__button {
@@ -6,7 +9,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    font-family: "Cardo", serif;
+    font-family: $main-font;
     font-weight: bold;
     font-size: 15px;
   }

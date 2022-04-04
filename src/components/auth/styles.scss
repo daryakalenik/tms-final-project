@@ -1,7 +1,5 @@
-$header-font: "Cinzel", serif;
-$main-font: "Cardo", serif;
-$header-font-color: rgba(247, 195, 126, 0.8);
-$header-font-stroke: 1px rgba(255, 255, 255, 0.1);
+@import "../../variables/variables";
+
 
 .auth-block {
   width: 100%;

@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap");
-
-$header-font: "Cinzel", serif;
-$main-font: "Cardo", serif;
+@import "../src/variables/variables";
 
 * {
   margin: 0;
@@ -96,6 +92,7 @@ $main-font: "Cardo", serif;
     margin: 8px;
   }
   .data-list__paragraph {
+    font-family: $main-font;
     font-size: 20px;
     margin: 10px;
   }

@@ -1,5 +1,4 @@
-$header-font: "Cinzel", serif;
-$main-font: "Cardo", serif;
+@import "../../variables/variables";
 
 .category-main-block__unique-items-block {
   display: flex;
@@ -21,6 +20,7 @@ $main-font: "Cardo", serif;
     margin: 8px;
   }
   .data-list__paragraph {
+    font-family: $main-font;
     font-size: 20px;
     margin: 10px;
   }
