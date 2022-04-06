@@ -17,9 +17,9 @@ export const StructuresDetails: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {structuresDetails ? (
-        <div className="category-main-block__details-list details-list">
-          <h2 className="details-list__name">{structuresDetails.name}</h2>
-          <div className="unique-item__cost-block cost-block">
+        <div className="item-details-list category-main-block__item-details-list">
+          <h2 className="item-details-list__name">{structuresDetails.name}</h2>
+          <div className="cost-block item-details-list_cost-block">
             {structuresDetails.cost
               ? Object.entries(structuresDetails.cost).map(([key, value]) => {
                   return (
@@ -31,24 +31,26 @@ export const StructuresDetails: React.FC = () => {
                 })
               : null}
           </div>
-          <ul className="details-list__data-list data-list">
-            <p className="data-list__header">Other data:</p>
-            <li className="data-list__paragraph">
+          <div className="another-data-block item-details-list__another-data-block"> 
+          <ul className="another-data-list another-data-block__another-data-list">
+            <p className="another-data-list__header">Other data:</p>
+            <li className="another-data-list__paragraph">
               Build time: {structuresDetails.build_time}
             </li>
-            <li className="data-list__paragraph">
+            <li className="another-data-list__paragraph">
               Hit Points: {structuresDetails.hit_points}
             </li>
-            <li className="data-list__paragraph">
+            <li className="another-data-list__paragraph">
               Line of Sight: {structuresDetails.line_of_sight}
             </li>
-            <li className="data-list__paragraph">
+            <li className="another-data-list__paragraph">
               Armor: {structuresDetails.armor}
             </li>
-            <li className="data-list__paragraph">
+            <li className="another-data-list__paragraph">
               Age: {structuresDetails.age}
             </li>
           </ul>
+           </div>
         </div>
       ) : (
         <Preloader />

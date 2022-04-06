@@ -18,15 +18,15 @@ export const Civilizations: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {civilizationsMain ? (
-        <div className="category-main-block__items-list items-list">
+        <div className="main-items-list category-main-block__main-items-list">
           {civilizationsMain.map((item: Civilization) => {
             return (
-              <div key={item.id} className="items-list__item item">
-                <h5 className="item__item-name">{item.name}</h5>
-                <p className="item__item-details">{item.team_bonus}</p>
+              <div key={item.id} className="main-item items-list__main-item">
+                <h5 className="main-item__item-name">{item.name}</h5>
+                <p className="main-item__item-details">{item.team_bonus}</p>
                 <Link
                   to={`/civilizations/${item.id}`}
-                  className="item__item-link"
+                  className="main-item__item-link"
                 >
                   Learn more
                 </Link>

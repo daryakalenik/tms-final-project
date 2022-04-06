@@ -1,26 +1,26 @@
 @import "../../variables/variables";
 
-.menu {
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  font-family: $header-font;
-  font-size: 23px;
-  background-color: rgb(26, 26, 26);
-  .menu__item {
-    text-decoration: none;
-    -webkit-text-stroke: $header-font-stroke;
-    -webkit-text-fill-color: $header-font-color;
+.header {
+  width: 100%;
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: $header-font;
+    font-size: 23px;
+    background-color: rgb(26, 26, 26);
+    .menu__item {
+      padding: 5px;
+      text-decoration: none;
+      -webkit-text-stroke: $header-font-stroke;
+      -webkit-text-fill-color: $header-font-color;
+    }
+    .menu__item--active {
+      text-decoration: none;
+      -webkit-text-fill-color: rgba(255, 22, 41, 0.8);
+    }
   }
-  .menu__item_active {
-    text-decoration: none;
-    -webkit-text-fill-color: rgba(255, 22, 41, 0.8);
-  }
-}
-
-.menu__item_active {
-  text-decoration: none;
-  -webkit-text-fill-color: rgba(255, 22, 41, 0.8);
 }

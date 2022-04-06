@@ -27,34 +27,36 @@ export const CivilizationDetails: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {civilizationDetails ? (
-        <div className="category-main-block__details-list details-list">
-          <h2 className="details-list__name">{civilizationDetails.name}</h2>
-          <p className="details-list__paragraph">
+        <div className="item-details-list category-main-block__item-details-list">
+          <h2 className="item-details-list__name">{civilizationDetails.name}</h2>
+          <p className="item-details-list__paragraph">
             {civilizationDetails.team_bonus}
           </p>
-          <ul className="details-list__data-list data-list">
-            <p className="data-list__header">Civilization bonus:</p>
+          <div className="another-data-block item-details-list__another-data-block">
+          <ul className="another-data-list another-data-block__another-data-list">
+            <p className="another-data-list__header ">Civilization bonus:</p>
             {civilizationDetails.civilization_bonus?.map(
               (item: string, index: number) => {
                 return (
-                  <li key={index} className="data-list__paragraph">
+                  <li key={index} className="another-data-list__paragraph">
                     {item}
                   </li>
                 );
               }
             )}
           </ul>
+          </div>
           <button
             value={civilizationDetails.unique_unit}
             onClick={getUniqueUnit}
-            className="details-list__button"
+            className="item-details-list__button"
           >
             Unique unit
           </button>
           <button
             value={civilizationDetails.unique_tech}
             onClick={getUniqueTech}
-            className="details-list__button"
+            className="item-details-list__button"
           >
             Unique tech
           </button>
@@ -62,23 +64,23 @@ export const CivilizationDetails: React.FC = () => {
       ) : (
         <Preloader />
       )}
-      <div className="category-main-block__unique-items-block">
+      <div className="unique-items-block category-main-block__unique-items-block">
         {uniqueUnit ? (
-          <div className="unique-items-block__unique-item unique-item">
-            <div className="unique-item__data-list data-list">
-              <p className="data-list__header">
+          <div className="unique-item unique-items-block__unique-item">
+            <div className="unique-details-list unique-item__unique-details-list">
+              <p className="unique-details-list__header">
                 {uniqueUnit.name}
                 {uniqueUnit.name ? (
                   <button
-                    className="unique-item__delete-button"
+                    className="unique-details-list__delete-button"
                     onClick={deleteUniqueUnit}
                   >
                     X
                   </button>
                 ) : null}
               </p>
-              <p className="data-list__paragraph">{uniqueUnit.description}</p>
-              <div className="unique-item__cost-block cost-block">
+              <p className="unique-details-list__paragraph">{uniqueUnit.description}</p>
+              <div className="cost-block unique-details-list__cost-block">
                 {uniqueUnit.cost
                   ? Object.entries(uniqueUnit.cost).map(([key, value]) => {
                       return (
@@ -95,13 +97,13 @@ export const CivilizationDetails: React.FC = () => {
         ) : null}
 
         {uniqueTech ? (
-          <div className="unique-items-block__unique-item unique-item">
-            <div className="unique-item__data-list data-list">
-              <p className="data-list__header">
+          <div className="unique-item unique-items-block__unique-item">
+            <div className="unique-details-list unique-item__unique-details-list">
+              <p className="unique-details-list__header">
                 {uniqueTech.name}
                 {uniqueTech.name ? (
                   <button
-                    className="unique-item__delete-button"
+                    className="unique-details-list__delete-button"
                     onClick={deleteUniqueTech}
                   >
                     X
@@ -109,8 +111,8 @@ export const CivilizationDetails: React.FC = () => {
                 ) : null}
               </p>
 
-              <p className="data-list__paragraph">{uniqueTech.description}</p>
-              <div className="unique-item__cost-block cost-block">
+              <p className="unique-details-list__paragraph">{uniqueTech.description}</p>
+              <div className="cost-block unique-details-list__cost-block">
                 {uniqueTech.cost
                   ? Object.entries(uniqueTech.cost).map(([key, value]) => {
                       return (

@@ -3,6 +3,7 @@ import { costSwitch } from "../../../helpers/costSwitch";
 import Preloader from "../../Preloader/Preloader";
 import { BackButton } from "../../BackButton/BackButton";
 import { useEffect, useState } from "react";
+import "./styles.scss";
 
 type State = { opened: boolean };
 
@@ -19,10 +20,12 @@ export const UnitsDetails: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {unitsDetails ? (
-        <div className="category-main-block__details-list details-lis">
-          <h2 className="details-list__name">{unitsDetails.name}</h2>
-          <p className="details-list__paragraph">{unitsDetails.description}</p>
-          <div className="unique-item__cost-block cost-block">
+        <div className="item-details-list category-main-block__item-details-list">
+          <h2 className="item-details-list__name">{unitsDetails.name}</h2>
+          <p className="item-details-list__paragraph">
+            {unitsDetails.description}
+          </p>
+          <div className="cost-block item-details-list_cost-block">
             {unitsDetails.cost ? (
               Object.entries(unitsDetails.cost).map(([key, value]) => {
                 return (
@@ -36,31 +39,31 @@ export const UnitsDetails: React.FC = () => {
               <Preloader />
             )}
           </div>
-          <div className="details-list__data-list data-list">
-            <div className="data-list___header-block header-block">
-              <p className="header-block__text">Other data:</p>
+          <div className="another-data-block item-details-list__another-data-block">
+            <div className="unit-data-header another-data-block___unit-data-header">
+              <p className="unit-data-header__text">Other data:</p>
               <div
-                className="header__toggler"
+                className="unit-data-header__toggler"
                 onClick={() => {
                   setState((prevState) => ({ opened: !prevState.opened }));
                 }}
               />
             </div>
             {state.opened ? (
-              <ul className="data-list__items">
-                <li className="data-list__paragraph">
+              <ul className="another-data-list another-data-block__another-data-list">
+                <li className="another-data-list__paragraph">
                   Age: {unitsDetails.age}
                 </li>
-                <li className="data-list__paragraph">
+                <li className="another-data-list__paragraph">
                   Armor: {unitsDetails.armor}
                 </li>
-                <li className="data-list__paragraph">
+                <li className="another-data-list__paragraph">
                   Attack: {unitsDetails.attack}
                 </li>
-                <li className="data-list__paragraph">
+                <li className="another-data-list__paragraph">
                   Attack delay: {unitsDetails.attack_delay}
                 </li>
-                <li className="data-list__paragraph">
+                <li className="another-data-list__paragraph">
                   Build time: {unitsDetails.build_time}
                 </li>
               </ul>

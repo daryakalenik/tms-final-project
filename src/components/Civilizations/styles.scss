@@ -1,37 +1,43 @@
 @import "../../variables/variables";
 
-.category-main-block__unique-items-block {
+
+.item-details-list__button {
+  margin: 10px;
+  width: 100px;
+  height: 45px;
+  font-family: $main-font;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.unique-items-block  {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.unique-item__data-list {
+.unique-details-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   margin: 10px;
 
-  .data-list__header {
+  .unique-details-list__header {
     font-family: $main-font;
     font-size: 25px;
     font-weight: bold;
     margin: 8px;
   }
-  .data-list__paragraph {
+  .unique-details-list__paragraph {
     font-family: $main-font;
     font-size: 20px;
     margin: 10px;
   }
 }
 
-.unique-item__delete-button {
+.unique-details-list__delete-button {
   margin-left: 10px;
   width: 25px;
   height: 25px;
-}
-
-.cost-block__paragraph {
-  margin-left: 10px;
 }

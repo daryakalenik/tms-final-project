@@ -18,15 +18,15 @@ export const Technologies: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {technologiesMain ? (
-        <div className="category-main-block__items-list items-list">
+        <div className="main-items-list category-main-block__main-items-list">
           {technologiesMain.map((item: Technology, index: number) => {
             return (
-              <div key={index} className="items-list__item item">
-                <h5 className="item__item-name">{item.name}</h5>
-                <p className="item__item-details">{item.description}</p>
+              <div key={index} className="main-item items-list__main-item">
+                <h5 className="main-item__item-name">{item.name}</h5>
+                <p className="main-item__item-details">{item.description}</p>
                 <Link
                   to={`/technologies/${item.id}`}
-                  className="item__item-link"
+                  className="main-item__item-link"
                 >
                   {" "}
                   Learn more

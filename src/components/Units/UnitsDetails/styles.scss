@@ -1,0 +1,24 @@
+@import "../../../variables/variables";
+
+
+.unit-data-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.unit-data-header__text {
+font-family: $main-font;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 8px;
+}
+  
+.unit-data-header__toggler {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f00;
+}

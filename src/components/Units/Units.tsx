@@ -17,13 +17,13 @@ export const Units: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {unitsMain ? (
-        <div className="category-main-block__items-list items-list">
+        <div className="main-items-list category-main-block__main-items-list">
           {unitsMain.map((item: Unit, index: number) => {
             return (
-              <div key={index} className="items-list__item item">
-                <h5 className="item__item-name">{item.name}</h5>
-                <p className="item__item-details">{item.description}</p>
-                <Link to={`/units/${item.id}`} className="item__item-link">
+              <div key={index} className="main-item items-list__main-item">
+                <h5 className="main-item__item-name">{item.name}</h5>
+                <p className="main-item__item-details">{item.description}</p>
+                <Link to={`/units/${item.id}`} className="main-item__item-link">
                   Learn more
                 </Link>
               </div>

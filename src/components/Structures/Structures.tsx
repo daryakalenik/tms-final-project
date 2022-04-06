@@ -17,12 +17,15 @@ export const Structures: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {structuresMain ? (
-        <div className="category-main-block__items-list items-list">
+        <div className="main-items-list category-main-block__main-items-list">
           {structuresMain.map((item: Structure, index: number) => {
             return (
-              <div key={index} className="items-list__item item">
-                <h5 className="item__item-name">{item.name}</h5>
-                <Link to={`/structures/${item.id}`} className="item__item-link">
+              <div key={index} className="main-item items-list__main-item">
+                <h5 className="main-item__item-name">{item.name}</h5>
+                <Link
+                  to={`/structures/${item.id}`}
+                  className="main-item__item-link"
+                >
                   Learn more
                 </Link>
               </div>

@@ -17,12 +17,12 @@ export const TechnologiesDetails: React.FC = () => {
     <div className="category-main-block">
       <BackButton />
       {technologiesDetails ? (
-        <div className="category-main-block__details-list details-list">
-          <h2 className="details-list__name">{technologiesDetails.name}</h2>
-          <p className="details-list__paragraph">
+        <div className="item-details-list category-main-block__item-details-list">
+          <h2 className="item-details-list__name">{technologiesDetails.name}</h2>
+          <p className="item-details-list__paragraph">
             {technologiesDetails.description}
           </p>
-          <div className="unique-item__cost-block cost-block">
+          <div className="cost-block item-details-list_cost-block">
             {technologiesDetails.cost
               ? Object.entries(technologiesDetails.cost).map(([key, value]) => {
                   return (
